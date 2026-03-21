@@ -1,38 +1,55 @@
 # Backend (FastAPI)
 
-## Como executar localmente
+## Como rodar o app (passo a passo)
 
-1. Suba o PostgreSQL:
+1. Suba infraestrutura local (PostgreSQL + MinIO):
 
 ```bash
 docker compose up -d
 ```
 
-2. Crie e ative um ambiente virtual e instale dependências:
+2. Crie e ative ambiente virtual:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
+```
+
+3. Instale dependências:
+
+```bash
 pip install -r requirements.txt -r requirements-dev.txt
 ```
 
-3. Copie as variáveis de ambiente:
+4. Configure variáveis:
 
 ```bash
 cp .env.example .env
 ```
 
-4. Rode as migrações Alembic:
+5. Rode as migrações:
 
 ```bash
 alembic upgrade head
 ```
 
-5. Rode a API:
+6. Inicie a API:
 
 ```bash
 uvicorn app.main:app --reload
 ```
+
+7. Acesse:
+- API docs (Swagger): `http://127.0.0.1:8000/docs`
+- Healthcheck: `http://127.0.0.1:8000/health`
+- MinIO Console: `http://127.0.0.1:9001` (user/pass: `minioadmin`)
+
+## Fluxo rápido para testar no Postman/Insomnia
+
+1. `POST /api/v1/auth/register-company`
+2. `POST /api/v1/auth/register-user`
+3. `POST /api/v1/auth/login`
+4. Use `Authorization: Bearer <access_token>` nas rotas protegidas.
 
 ## Testes
 
@@ -49,7 +66,6 @@ pytest
 - `POST /api/v1/auth/refresh`
 - `GET /api/v1/auth/me`
 - CRUD básico de funcionários, habilidades, serviços e vínculo funcionário↔habilidade.
-
 
 ## Próximos passos sugeridos
 
