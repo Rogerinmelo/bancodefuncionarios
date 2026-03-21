@@ -66,3 +66,24 @@ pytest
 - `POST /api/v1/employees/{employee_id}/history/{history_id}/photos`
 - `POST /api/v1/demands/{demand_id}/build-task-force`
 - `GET /api/v1/demands/{demand_id}/suggestions/latest`
+
+
+## Rodar tudo com Docker (API + Postgres + MinIO)
+
+```bash
+cd backend
+docker compose up --build -d
+```
+
+Verificar saúde da API:
+
+```bash
+curl http://localhost:8000/health
+```
+
+Executar smoke test automático (cria empresa/usuário, funcionário, skill, demanda, sugestão e força-tarefa):
+
+```bash
+cd backend
+./scripts/demo_smoke.sh
+```
