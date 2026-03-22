@@ -19,6 +19,8 @@ if SQLALCHEMY_DATABASE_URL.startswith("sqlite"):
     engine_kwargs["connect_args"] = {"check_same_thread": False}
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, **engine_kwargs)
+SQLALCHEMY_DATABASE_URL = "sqlite+pysqlite:///./test.db"
+engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 

@@ -116,3 +116,4 @@ Com isso o sistema pode:
 - ranquear funcionários para cada demanda,
 - sugerir combinações de equipe,
 - indicar quais habilidades estão faltando no time atual.
+
