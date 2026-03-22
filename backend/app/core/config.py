@@ -21,7 +21,6 @@ class Settings(BaseSettings):
     max_upload_size_bytes: int = 5 * 1024 * 1024
     allowed_upload_mime_types: str = "image/jpeg,image/png,image/webp"
     signed_url_expires_seconds: int = 3600
-    cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 

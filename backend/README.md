@@ -27,7 +27,6 @@ pip install -r requirements.txt -r requirements-dev.txt
 cp .env.example .env
 ```
 
-> Ajuste `CORS_ORIGINS` no `.env` caso o frontend rode em outra porta/domínio.
 
 5. Rode as migrações:
 
@@ -91,17 +90,3 @@ pytest
 Scripts:
 - `scripts/bootstrap_dev.sh` (setup completo de ambiente)
 - `scripts/smoke_api.sh` (validação rápida de fluxo auth + employee)
-
-
-## Rodando frontend junto com backend
-
-Em outro terminal:
-
-```bash
-cd ../frontend
-cp .env.example .env
-npm install
-npm run dev
-```
-
-O frontend padrão usa `http://127.0.0.1:8000/api/v1` como API base.
