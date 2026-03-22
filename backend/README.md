@@ -27,6 +27,7 @@ pip install -r requirements.txt -r requirements-dev.txt
 cp .env.example .env
 ```
 
+
 5. Rode as migrações:
 
 ```bash
@@ -74,3 +75,18 @@ pytest
 3. Implementar gerenciamento de membros da força-tarefa (editar/remover membro e papéis no time).
 4. Aplicar RBAC completo em todos os módulos legados (employees, skills, services) com matriz de permissões.
 5. Publicar documentação OpenAPI por perfil e exemplos prontos para integração frontend.
+
+
+## Atalhos de execução
+
+- `make up` → sobe Postgres + MinIO
+- `make install` → cria venv e instala dependências
+- `make env` → cria `.env` a partir de `.env.example`
+- `make migrate` → aplica migrações
+- `make run` → inicia API
+- `make test` → roda testes
+- `make smoke` → smoke test básico da API
+
+Scripts:
+- `scripts/bootstrap_dev.sh` (setup completo de ambiente)
+- `scripts/smoke_api.sh` (validação rápida de fluxo auth + employee)
